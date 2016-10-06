@@ -1,0 +1,23 @@
+---
+version: '2.0'
+
+brocade-fed-lab.evaluate_and_set_lab_lights:
+  input:
+    - text
+    - user
+  tasks:
+    is_there_a_color_in_the_tweet:
+      # [162, 102]
+      action: brocade-fed-lab.get_colors_from_text
+      input:
+        text: <% $.text %>
+      on-success:
+        - set_the_color
+    set_the_color:
+      # [165, 361]
+      action: hue.rgb
+      input:
+        red: <% task(is_there_a_color_in_the_tweet).result.result.red %>
+        green: <% task(is_there_a_color_in_the_tweet).result.result.green %>
+        blue: <% task(is_there_a_color_in_the_tweet).result.result.blue %>
+        light_id: "l1"

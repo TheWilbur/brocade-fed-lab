@@ -1,0 +1,11 @@
+---
+  name: "get_colors_from_text"
+  runner_type: "run-python"
+  description: "Evaluates text for color words. Returns RGB values of color on first match"
+  enabled: true
+  entry_point: "get_colors_from_text.py"
+  parameters:
+    text:
+      type: "string"
+      description: "text"
+      required: true

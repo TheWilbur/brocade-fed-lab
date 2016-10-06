@@ -1,0 +1,14 @@
+---
+  name: "check_for_color_in_tweet"
+  description: "Evaluates a tweet for a color to then set the lab lights"
+  enabled: true
+
+  trigger:
+    type: "twitter.matched_tweet"
+    parameters: {}
+
+  action:
+    ref: "evaluate_and_set_lab_lights"
+    parameters:
+        text: "{{trigger.text}}"
+        user: "{{trigger.user}}"

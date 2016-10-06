@@ -1,0 +1,14 @@
+---
+  name: evaluate_and_set_lab_lights
+  description: Evaluates our Twitter tweets for colors and set the hue lights in our lab to that color
+  enabled: true
+  entry_point: workflows/evaluate_and_set_lab_lights.yaml
+  pack: brocade-fed-lab
+  runner_type: mistral-v2
+  parameters:
+    text: 
+      type: string
+      description: tweet text
+    user:
+      type: string
+      description: the user that tweeted the message
